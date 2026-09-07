@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap');
+
+:root {
+  --blue: #4b3fd4;
+  --blue-light: #dcd9ff;
+  --steel-blue: #66758a;
+  --text: #172033;
+  --muted: #6e7888;
+  --line: #dfe4eb;
+  --card: #ffffff;
+  --page: #f7f8fb;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--text);
+  
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 80px;
+}
+
+.site-header {
+  margin: 0 auto 42px;
+  max-width: 980px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--blue);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+
+.subtitle {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: clamp(.95rem, 2vw, 1.08rem);
+}
+
+.tracker {
+  position: relative;
+  width: 100%;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 92px;
+}
+
+/* The vertical tracker line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 32px;
+  bottom: 42px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, var(--blue) 0 25%, var(--line) 25% 100%);
+}
+
+.stop {
+  position: relative;
+  margin: 0 0 34px;
+}
+
+.stop:last-child {
+  margin-bottom: 0;
+}
+
+.marker {
+  position: absolute;
+  left: -92px;
+  top: 22px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 7px solid #fff;
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--line);
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.marker::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #cfd6df;
+}
+
+.stop.active .marker {
+  box-shadow: 0 0 0 2px var(--blue-light), 0 0 0 7px rgba(75, 63, 212, .06);
+}
+
+.stop.active .marker::after {
+  background: var(--blue);
+}
+
+.stop.complete .marker {
+  box-shadow: 0 0 0 2px var(--blue);
+}
+
+.stop.complete .marker::after {
+  background: var(--blue);
+}
+
+.location-card {
+  background: var(--card);
+  border: 1px solid #e5e9ef;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(23, 32, 51, .07);
+}
+
+.stop.active .location-card {
+  border-color: #d8d4ff;
+  box-shadow: 0 14px 42px rgba(75, 63, 212, .11);
+}
+
+.location-header {
+  padding: 22px 26px 16px;
+}
+
+.location-name {
+  margin: 0;
+  color: var(--steel-blue);
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.stop.active .location-name {
+  color: var(--blue);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.date {
+  margin: 7px 0 0;
+  color: #929ba8;
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.photo-wrap {
+  width: 100%;
+  background: #eef1f5;
+  line-height: 0;
+}
+
+.photo-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: cover;
+}
+
+/* Helpful if a source image is extremely tall */
+@media (min-width: 800px) {
+  .photo-wrap img {
+    max-height: 760px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-shell {
+    width: min(100% - 20px, 680px);
+    padding: 28px 0 56px;
+  }
+
+  .site-header {
+    margin-bottom: 28px;
+  }
+
+  .timeline {
+    padding-left: 48px;
+  }
+
+  .timeline::before {
+    left: 14px;
+    top: 24px;
+    bottom: 28px;
+    width: 2px;
+  }
+
+  .stop {
+    margin-bottom: 24px;
+  }
+
+  .marker {
+    left: -48px;
+    top: 17px;
+    width: 32px;
+    height: 32px;
+    border-width: 4px;
+  }
+
+  .marker::after {
+    width: 10px;
+    height: 10px;
+  }
+
+  .location-card {
+    border-radius: 17px;
+  }
+
+  .location-header {
+    padding: 16px 16px 13px;
+  }
+
+  .date {
+    font-size: .78rem;
+  }
+
+  .photo-wrap img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .page-shell {
+    width: calc(100% - 12px);
+    padding-top: 22px;
+  }
+
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  .subtitle {
+    font-size: .9rem;
+  }
+
+  .timeline {
+    padding-left: 39px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .marker {
+    left: -39px;
+    width: 25px;
+    height: 25px;
+    border-width: 3px;
+  }
+
+  .marker::after {
+    width: 8px;
+    height: 8px;
+  }
+
+  .location-name {
+    font-size: 1rem;
+  }
+}
