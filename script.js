@@ -90,7 +90,7 @@ const visibleStops = locations
       return a.file.localeCompare(b.file);
     });
 
-visibleStops.forEach((location, index) => {
-  const isActive = index === visibleStops.length - 1;
+visibleStops.reverse().forEach((location, index) => {
+  const isActive = index === 0;
   timeline.appendChild(createStop(location, index, isActive));
 });
