@@ -10,9 +10,9 @@ const locations = [
   { file: "sydney.png",    city: "SYDNEY", date: "2026-09-12" },
   { file: "buenosaires.png",   city: "BUENOS AIRES", date: "2026-09-13" },
   { file: "mexicocity.png",   city: "MEXICO CITY", date: "2026-09-14" },
-  { file: "ohio.png",   city: "OHIO", date: "2026-09-15" },
-  { file: "newyork.png", city: "NEW YORK CITY", date: "2026-09-16" },
-  { file: "washington.png",   city: "WASHINGTON, D.C.", date: "2026-09-17" },
+  { file: "ohio.png",   city: "OHIO", date: "2026-09-14" },
+  { file: "newyork.png", city: "NEW YORK CITY", date: "2026-09-14" },
+  { file: "washington.png",   city: "WASHINGTON, D.C.", date: "2026-09-14" },
 ];
 
 const timeline = document.querySelector("#timeline");
